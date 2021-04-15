@@ -28,7 +28,7 @@ Side-by-side comparion between ETH v.s. NEAR for developers
     - single key pair v.s. multiple key pairs
     - key models: full access v.s. function call key
 
-3. Solidity v.s Rust (AssemblyScript): https://bit.ly/near-102-recipes
+3. [Solidity v.s Rust (AssemblyScript)](https://bit.ly/near-102-recipes)
 
     - cross-contract call
     - (de)serialization
