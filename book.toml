@@ -1,0 +1,6 @@
+[book]
+authors = ["think-in-universe"]
+language = "en"
+multilingual = true
+src = "src"
+title = "NEAR Cookbook"
