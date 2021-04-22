@@ -33,3 +33,6 @@ Side-by-side comparion between ETH v.s. NEAR for developers
     - cross-contract call
     - (de)serialization
 
+4. Deployment and Versioning
+
+    - upgradability
