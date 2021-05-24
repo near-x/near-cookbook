@@ -8,5 +8,5 @@
 - [Non-Fungible Token](./nft.md)
 - [Hiding the Blockchain](./hiding-blockchain.md)
 - [Storage](./storage.md)
-- [Rainbow Bridge](./rainbow_bridge.md)
+- [Aurora](./aurora.md)
 - [Indexer](./indexer.md)
