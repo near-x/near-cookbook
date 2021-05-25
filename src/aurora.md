@@ -11,10 +11,18 @@
 - [ETH as base token](https://gov.near.org/t/evm-runtime-base-token/340)
 - [EVM runtime](https://github.com/near/NEPs/pull/106)
 
-### Develop with Aurora
+### Dev Docs
 
 - [Aurora Dev Docs](https://doc.aurora.dev/develop/networks)
 - [Aurora Introduction](https://docs.near.org/docs/develop/evm/introduction)
+- [Example: NEAR Pet Shop](https://github.com/near-examples/near-pet-shop)
+
+### Tooling
+
+- [Aurora CLI](https://github.com/aurora-is-near/aurora-cli)
+- [NEAR Web3 Provider](https://github.com/aurora-is-near/near-web3-provider)
+- [aurora.js](https://github.com/aurora-is-near/aurora.js)
+- [Aurora Relayer](https://github.com/aurora-is-near/aurora-relayer)
 
 
 ## Rainbow Bridge
