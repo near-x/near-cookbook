@@ -6,7 +6,7 @@
 - [Powerful Account Model](./account.md)
 - [Fungible Token](./ft.md)
 - [Non-Fungible Token](./nft.md)
-- [Hiding the Blockchain](./hiding-blockchain.md)
+- [Hiding the Blockchain](./hiding_blockchain.md)
 - [Storage](./storage.md)
 - [Aurora](./aurora.md)
 - [Indexer](./indexer.md)

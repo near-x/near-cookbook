@@ -6,6 +6,16 @@
 - [Aurora Docs](https://doc.aurora.dev/)
 - [Aurora launches on NEAR Protocol](https://near.org/blog/aurora-launches-near/) ([中文版](https://mp.weixin.qq.com/s/ebz3glZEGTNpLya7R6GrsQ))
 
+### Design & Discussion
+
+- [ETH as base token](https://gov.near.org/t/evm-runtime-base-token/340)
+- [EVM runtime](https://github.com/near/NEPs/pull/106)
+
+### Develop with Aurora
+
+- [Aurora Dev Docs](https://doc.aurora.dev/develop/networks)
+- [Aurora Introduction](https://docs.near.org/docs/develop/evm/introduction)
+
 
 ## Rainbow Bridge
 
