@@ -15,7 +15,9 @@
 
 - [Aurora Dev Docs](https://doc.aurora.dev/develop/networks)
 - [Aurora Introduction](https://docs.near.org/docs/develop/evm/introduction)
-- [Example: NEAR Pet Shop](https://github.com/near-examples/near-pet-shop)
+- [Examples]
+  - [Deployment with MetaMask and Remix](https://doc.aurora.dev/develop/start/metamask)
+  - [Deployment with Truffle](https://doc.aurora.dev/develop/start/truffle)
 
 ### Tooling
 
