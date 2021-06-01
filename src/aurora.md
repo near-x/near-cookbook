@@ -15,7 +15,7 @@
 
 - [Aurora Dev Docs](https://doc.aurora.dev/develop/networks)
 - [Aurora Introduction](https://docs.near.org/docs/develop/evm/introduction)
-- [Examples]
+- Examples
   - [Deployment with MetaMask and Remix](https://doc.aurora.dev/develop/start/metamask)
   - [Deployment with Truffle](https://doc.aurora.dev/develop/start/truffle)
 
