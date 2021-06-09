@@ -25,3 +25,7 @@ Awesome FTs Projects and Toolkits built with NEAR
 - [Ref Finance](https://app.ref.finance/)
     - [contracts](https://github.com/ref-finance/ref-contracts)
     - [UI](https://github.com/ref-finance/ref-ui)
+
+## Token List
+
+- https://tkn.farm/
