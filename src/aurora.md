@@ -37,6 +37,7 @@
 ### Design
 
 - [ETH-NEAR Rainbow Bridge](https://near.org/blog/eth-near-rainbow-bridge/) ([中文版](https://mp.weixin.qq.com/s/-giL3YRhVvyzP5dpHxw0sw))
+- [How the NEAR Rainbow Bridge works](https://aurora.dev/blog/2021-how-the-rainbow-bridge-works)
 - [Light Client Spec](https://nomicon.io/ChainSpec/LightClient.html)
 - [Bridge Upgradability and Governance](https://gov.near.org/t/bridge-upgradability-and-governance-plan/633)
 
