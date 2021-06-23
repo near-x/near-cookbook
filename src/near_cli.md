@@ -16,9 +16,9 @@ near call testnet create_account \
 
 Here we take `Banana` from BerryClub for example. 
 
-Suppose we want to transfer 1 Banana from the user `robertyan.testnet` to `linus.testnet`. If the receiver hasn't regisered on NEP141 before, we first need to deposit storage cost for the receiver `linus.testnet` (i.e. register the account on the NEP141 contract) with a small amount of NEAR. Then we'll be able to `ft_transfer` to the receiver. 
-
-Since the precision of Banana is 18 digits, the amount of sending 1 Banana should be 1000000000000000000
+Suppose we want to transfer 1 Banana from the user `robertyan.testnet` to `linus.testnet`. 
+1. If the receiver hasn't regisered on NEP141 before, we first need to deposit storage cost for the receiver `linus.testnet` (i.e. register the account on the NEP141 contract) with a small amount of NEAR. 
+2. Then we'll be able to call `ft_transfer` to transfer Banana to the receiver. Since the precision of Banana is 18 digits, the amount is `1000000000000000000` for sending 1 Banana
 
 #### TestNet
 
