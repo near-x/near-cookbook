@@ -22,7 +22,7 @@ Suppose we want to transfer 1 Banana from the user `robertyan.testnet` to `linus
 
 #### TestNet
 
-You need to run `storage_deposit` first to register the receiver account on Banana contract
+You need to run `storage_deposit` first to register the receiver account on Banana contract `berryclub.testnet`
 
 ```bash
 near call berryclub.testnet \
@@ -40,10 +40,15 @@ near call berryclub.testnet ft_transfer \
 
 #### MainNet
 
+You need to run `storage_deposit` first to register the receiver account on Banana contract `berryclub.ek.near`
+
+
 ```bash
 near call berryclub.ek.near storage_deposit '{"account_id": "linus.near"}' \
 --account-id robertyan.near --amount 0.025
 ```
+
+Then you can send some tokens to the receiver
 
 ```bash
 near call berryclub.ek.near ft_transfer \
