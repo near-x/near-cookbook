@@ -13,6 +13,7 @@ Awesome FTs Projects and Toolkits built with NEAR
 
 - [FT Contract](https://github.com/near/near-sdk-rs/tree/master/near-contract-standards/src/fungible_token): Fungible Token contract implementation
 - [FT Launcher](https://github.com/near-apps/ft-launcher): launch FT project with easy user on-boarding
+- [Interact with FT with CLI or RPC](https://docs.near.org/docs/roles/integrator/exchange-integration#fungible-tokens): basic operations with FT including read balance and metadata, transfer tokens, and `transfer and call`
 
 ### Core Contracts with FT Support
 
