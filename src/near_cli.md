@@ -9,26 +9,32 @@ near call testnet create_account '{"new_account_id": "xxx.testnet", "new_public_
 
 ### Send NEP141 token to another account
 
+Here we take `Banana` from BerryClub for example. 
+
+Suppose we want to transfer 1 Banana from the user `robertyan.testnet` to `linus.testnet`. If the receiver hasn't regisered on NEP141 before, we first need to deposit storage cost for the receiver `linus.testnet` (i.e. register the account on the NEP141 contract) with a small amount of NEAR. Then we'll be able to `ft_transfer` to the receiver. 
+
+Since the precision of Banana is 18 digits, the amount of sending 1 Banana should be 1000000000000000000
+
 #### TestNet
 
-You need to run `storage_deposit` first to register an account
+You need to run `storage_deposit` first to register the receiver account on Banana contract
 
 ```bash
-near call berryclub.testnet storage_deposit '{"account_id": "r1.testnet"}' --account-id bot.testnet --amount 0.025
+near call berryclub.testnet storage_deposit '{"account_id": "linus.testnet"}' --account-id robertyan.testnet --amount 0.025
 ```
 
-Then you can send some tokens to the account
+Then you can send some tokens to the receiver
 
 ```bash
-near call berryclub.testnet ft_transfer '{"receiver_id": "r1.testnet", "amount": "1"}' --account-id closure.testnet --amount 0.000000000000000000000001
+near call berryclub.testnet ft_transfer '{"receiver_id": "linus.testnet", "amount": "1000000000000000000"}' --account-id robertyan.testnet --amount 0.000000000000000000000001
 ```
 
 #### MainNet
 
 ```bash
-near call berryclub.ek.near storage_deposit '{"account_id": "r12.near"}' --account-id robertyan.near --amount 0.025
+near call berryclub.ek.near storage_deposit '{"account_id": "linus.near"}' --account-id robertyan.near --amount 0.025
 ```
 
 ```bash
-near call berryclub.ek.near ft_transfer '{"receiver_id": "r12.near", "amount": "1"}' --account-id robertyan.near --amount 0.000000000000000000000001
+near call berryclub.ek.near ft_transfer '{"receiver_id": "linus.near", "amount": "1000000000000000000"}' --account-id robertyan.near --amount 0.000000000000000000000001
 ```
