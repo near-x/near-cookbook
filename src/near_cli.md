@@ -4,7 +4,12 @@
 ### Create `xxx.near` or `xxx.testnet` Account
 
 ```bash
-near call testnet create_account '{"new_account_id": "xxx.testnet", "new_public_key": "ed25519:DAh6wwBYbakodZaA3QSZvojBF7EceeUkZsdELTEBRoYt"}' --accountId bot.testnet --deposit 0.1
+near call testnet create_account \
+'{
+    "new_account_id": "xxxxxxx.testnet", 
+    "new_public_key": "ed25519:DAh6wwBYbakodZaA3QSZvojBF7EceeUkZsdELTEBRoYt"
+}' \
+--accountId bot.testnet --deposit 0.1
 ```
 
 ### Send NEP141 token to another account
@@ -20,21 +25,28 @@ Since the precision of Banana is 18 digits, the amount of sending 1 Banana shoul
 You need to run `storage_deposit` first to register the receiver account on Banana contract
 
 ```bash
-near call berryclub.testnet storage_deposit '{"account_id": "linus.testnet"}' --account-id robertyan.testnet --amount 0.025
+near call berryclub.testnet \
+storage_deposit '{"account_id": "linus.testnet"}' \
+--account-id robertyan.testnet --amount 0.025
 ```
 
 Then you can send some tokens to the receiver
 
 ```bash
-near call berryclub.testnet ft_transfer '{"receiver_id": "linus.testnet", "amount": "1000000000000000000"}' --account-id robertyan.testnet --amount 0.000000000000000000000001
+near call berryclub.testnet ft_transfer \
+'{"receiver_id": "linus.testnet", "amount": "1000000000000000000"}' \
+--account-id robertyan.testnet --amount 0.000000000000000000000001
 ```
 
 #### MainNet
 
 ```bash
-near call berryclub.ek.near storage_deposit '{"account_id": "linus.near"}' --account-id robertyan.near --amount 0.025
+near call berryclub.ek.near storage_deposit '{"account_id": "linus.near"}' \
+--account-id robertyan.near --amount 0.025
 ```
 
 ```bash
-near call berryclub.ek.near ft_transfer '{"receiver_id": "linus.near", "amount": "1000000000000000000"}' --account-id robertyan.near --amount 0.000000000000000000000001
+near call berryclub.ek.near ft_transfer \
+'{"receiver_id": "linus.near", "amount": "1000000000000000000"}' \
+--account-id robertyan.near --amount 0.000000000000000000000001
 ```
