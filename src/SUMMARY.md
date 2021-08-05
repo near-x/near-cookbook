@@ -10,3 +10,4 @@
 - [Storage](./storage.md)
 - [Aurora](./aurora.md)
 - [Indexer](./indexer.md)
+- [Localization](./localization.md)
