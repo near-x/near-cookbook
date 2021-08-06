@@ -12,14 +12,18 @@ Awesome NFTs Projects and Toolkits built with NEAR
   - [Non-Fungible Token Royalty Payout](https://nomicon.io/Standards/NonFungibleToken/Payout.html) ([NEP-199](https://github.com/near/NEPs/discussions/199))
 
 
-## Toolkits
+## Example Projects
 
-- [NFT Contract Example](https://github.com/near/core-contracts/tree/nft-simple/nft-simple): simple example of how NFT contract looks like
-- [NFT Contract Implementation](https://github.com/near/near-sdk-rs/tree/master/near-contract-standards/src/non_fungible_token): NFT implementation in NEAR Rust SDK
-- [NFT Example with `near-contract-standard`](https://github.com/near/near-sdk-rs/tree/master/examples/non-fungible-token): Example implementation of a non-fungible token contract which uses near-contract-standards and simulation tests.
-- [NFT Launcher](https://github.com/near-apps/nft-launcher): launch NFT project with easy user on-boarding
+### NFT Contract Examples
+
+1. [NFT Example with `near-contract-standard`](https://github.com/near/near-sdk-rs/tree/master/examples/non-fungible-token): Example implementation of a non-fungible token contract which uses `near-contract-standards` and simulation tests.
+2. [NFT Contract Simple Example](https://github.com/near/core-contracts/tree/nft-simple/nft-simple): simple example of how NFT contract looks like
+3. [NFT Contract Standard Implementation](https://github.com/near/near-sdk-rs/tree/master/near-contract-standards/src/non_fungible_token): NFT implementation in NEAR Rust SDK
+
+### NFT Market Examples
+
 - [NFT Marketplace](https://github.com/near-apps/nft-market) ([demo](https://near-apps.github.io/nft-market/)): PoC for NFT market projects
-- [NEAR API Server](https://github.com/zavodil/near-api-server): perform blockchain calls with the simple REST API, with NFT support such as mint NFT, transfer NFT, view NFT owners with the POST/GET requests
+- [NFT Launcher](https://github.com/near-apps/nft-launcher): launch NFT project with easy user on-boarding
 
 
 ## DApps 
