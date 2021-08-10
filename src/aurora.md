@@ -54,6 +54,8 @@
 - [Bridging Guild](https://github.com/BridgingGuild/BridgingGuild)
 
 
+### Contract
 
+- [Rainbow Bridge Contracts](https://gist.github.com/mfornet/e38777f9f758a76ec04ac941e8881c4b)
 
 
