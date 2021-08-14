@@ -9,3 +9,7 @@
 ## Decentralized Storage
 
 - Filecoin: https://near.storage/docs/
+
+## Filecoin x NEAR
+
+- Grant: https://github.com/filecoin-project/devgrants/blob/master/rfps/near-and-filecoin.md

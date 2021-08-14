@@ -12,6 +12,23 @@ near call testnet create_account \
     --accountId bot.testnet --deposit 0.1
 ```
 
+### Read Parameters from JSON File
+
+The JSON file could be `params.json`, with content
+
+```json
+{
+    "new_account_id": "xxxxxxx.testnet",
+    "new_public_key": "ed25519:DAh6wwBYbakodZaA3QSZvojBF7EceeUkZsdELTEBRoYt"
+}
+```
+
+Run the command below to create the account:
+
+```bash
+near call testnet create_account "$(< params.json)" --accountId bot.testnet --deposit 0.1
+```
+
 ### Send NEP141 token to another account
 
 Here we take `Banana` from BerryClub for example. 
