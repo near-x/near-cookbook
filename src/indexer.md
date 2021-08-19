@@ -15,8 +15,8 @@
 
 NEAR runs the indexer and maintains it for NEAR Explorer, NEAR Wallet, and some other internal services. It proved to be a great source of data for various analysis and services, so we decided to give a shared read-only public access to the data:
 
-testnet credentials: `postgres://public_readonly:nearprotocol@35.184.214.98/testnet_explorer`
-mainnet credentials: `postgres://public_readonly:nearprotocol@104.199.89.51/mainnet_explorer`
+- **testnet** credentials: `postgres://public_readonly:nearprotocol@35.184.214.98/testnet_explorer`
+- **mainnet** credentials: `postgres://public_readonly:nearprotocol@104.199.89.51/mainnet_explorer`
 
 #### Database Structure
 
