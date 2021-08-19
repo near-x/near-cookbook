@@ -25,7 +25,7 @@ NEAR runs the indexer and maintains it for NEAR Explorer, NEAR Wallet, and some 
 
 ## Common SQL Recipes
 
-**Total Account by date**
+**Total New Accounts By Date**
 
 ```SQL
 SELECT
@@ -52,7 +52,7 @@ LIMIT 10
 ```
 
 
-**Active Account**
+**Active Accounts by Date**
 
 ```SQL
 SELECT
