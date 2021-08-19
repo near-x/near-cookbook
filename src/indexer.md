@@ -38,7 +38,7 @@ GROUP BY “date”
 ORDER BY “date”
 ```
 
-**Top 10 Transactions**
+**Top 10 Accounts with most Transactions in Past Two Weeks**
 
 ```SQL
 SELECT signer_account_id,
