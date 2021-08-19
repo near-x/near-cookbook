@@ -73,11 +73,9 @@ SELECT
 
 [BerryClub Wayback](https://wayback.berryclub.io/ ) used indexer to fetch 50 edits randomly from all the edits or by a user
 
-[indexer client source code](https://github.com/vgrichina/berry-wayback/blob/master/indexer.js)
+- [indexer client source code](https://github.com/vgrichina/berry-wayback/blob/master/indexer.js)
 
-**find edits**
-
-[source code](https://github.com/vgrichina/berry-wayback/blob/e177f484aa3f8e5ad8fcb0619250edf0db242d47/indexer.js#L23-L39)
+**find edits**: [source code](https://github.com/vgrichina/berry-wayback/blob/e177f484aa3f8e5ad8fcb0619250edf0db242d47/indexer.js#L23-L39)
 
 > Fetch 50 edits randomly from all the edits or edits by a user
 
@@ -105,13 +103,12 @@ async function findEdits(accountId) {
 
 NEAR Wallet used indexer to query necessary information related to accounts, such as activities, FTs/NFTs owned by the user, etc.
 
-[indexer client source code](https://github.com/near/near-contract-helper/blob/master/middleware/indexer.js)
+- [indexer client source code](https://github.com/near/near-contract-helper/blob/master/middleware/indexer.js)
 
-**findAccountActivity**
+**findAccountActivity**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L39-L67)
+
 
 > Show account activities in wallet
-
-[source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L39-L67)
 
 ```js
 const findAccountActivity = async (ctx) => {
@@ -145,11 +142,9 @@ const findAccountActivity = async (ctx) => {
 };
 ```
 
-**findAccountsByPublicKey**
+**findAccountsByPublicKey**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L69-L80)
 
 > Find accounts by public key, so when you input seed phrase, wallet is able to know which account is related to this seed phrase.
-
-[source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L69-L80)
 
 ```js
 const findAccountsByPublicKey = async (ctx) => {
@@ -166,11 +161,9 @@ const findAccountsByPublicKey = async (ctx) => {
 };
 ```
 
-**findLikelyTokens**
+**findLikelyTokens**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L94-L127)
 
 > List the FT tokens related to the current user.
-
-[source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L94-L127)
 
 ```js
 const findLikelyTokens = async (ctx) => {
@@ -209,11 +202,9 @@ const findLikelyTokens = async (ctx) => {
 };
 ```
 
-**findLikelyNFTs**
+**findLikelyNFTs**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L130-L146)
 
 > List the NFT tokens related to the current user.
-
-[source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L130-L146)
 
 ```js
 const findLikelyNFTs = async (ctx) => {
