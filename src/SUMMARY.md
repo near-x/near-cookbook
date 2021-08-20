@@ -8,6 +8,7 @@
 - [Non-Fungible Token](./nft.md)
 - [Hiding the Blockchain](./hiding_blockchain.md)
 - [Storage](./storage.md)
-- [Aurora](./aurora.md)
+- [Wallet](./wallet.md)
 - [Indexer](./indexer.md)
+- [Aurora](./aurora.md)
 - [Localization](./localization.md)
