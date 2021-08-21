@@ -27,6 +27,9 @@ Awesome FTs Projects and Toolkits built with NEAR
     - [contracts](https://github.com/ref-finance/ref-contracts)
     - [UI](https://github.com/ref-finance/ref-ui)
 
+- [Meta Pool](https://metapool.narwallets.com/)
+    - [contracts](https://github.com/Narwallets/meta-pool)
+
 ## Token List
 
 - https://tkn.farm/
