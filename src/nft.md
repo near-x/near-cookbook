@@ -30,6 +30,10 @@ Awesome NFTs Projects and Toolkits built with NEAR
 
 1. [NEAR REST API Server](https://docs.near.org/docs/api/near-api-rest-server): perform blockchain calls with the simple REST API, with NFT support such as mint NFT, transfer NFT, view NFT owners with the POST/GET requests
 
+### More NFT Examples
+
+1. [10K](https://github.com/willemneal/tenk): Template for making a NFT contract with a raffle of tokens
+
 
 ## DApps 
 

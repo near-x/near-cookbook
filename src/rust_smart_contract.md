@@ -8,7 +8,7 @@
 
 ## Docs
 
-- [Rust SDK Book](https://sdk-g4yv.onrender.com/) ([source code](https://github.com/near/sdk-docs))
+- [Rust SDK Book](https://www.near-sdk.io/) ([source code](https://github.com/near/sdk-docs))
 
 
 ## Best Practices
