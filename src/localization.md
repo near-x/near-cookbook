@@ -29,7 +29,7 @@ Or you may use [`react-localize-redux`](https://ryandrewjohnson.github.io/react-
 
 [vue-i18n](https://kazupon.github.io/vue-i18n/) may be a good solution for Vue developers, or you can simply use [nuxt/i18n](https://i18n.nuxtjs.org/) module if you're building with Nuxt.js.
 
-#### Need Help with Translation
+#### Need Help with Translation?
 
 In case you need help about translation your DApp into any languages, create an issue [here](https://github.com/near-x/near-localize-dapp/issues/new) following the template, and we'll help connect you with the community to set up bounties and ask verified translators to help with the translation of your project.
 
