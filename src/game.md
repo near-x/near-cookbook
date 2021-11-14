@@ -67,7 +67,7 @@ Cocos2D
 
 - [BerryClub](https://berryclub.io/): drawing pixesl to earn
 - [NEAR Lands](https://lands.near.page/): massive multiplayer online world
-- [OP Games](https://opgames.org/): Game platform, procotol and community
+- [OP Games](https://opgames.org/): one game platform, procotol and community on NEAR
 - [Hash Rush](https://hashrush.com/): a mix between DOTA and Warcraft
 - [鲱鱼罐头 / Feiyu](https://www.fygtapp.com/): mobile app, 1~2M User Base
 - [Zed Run](https://zed.run/): horse racing and NFTs
@@ -75,7 +75,7 @@ Cocos2D
 - [Pixelparty](https://pixelparty.pixeldapps.co/): pixel games extended from BerryClub
 - [Marble Place](https://marble.place/): virtual world being built on NEAR
 - [Shroom Kingdom](https://shroomkingdom.net/): play to Earn Game based on Mario
-- [MTVRS](https://www.mtvrs.app/): Game Studio
+- [MTVRS](https://www.mtvrs.app/): game studio
 
 ## Community
 
