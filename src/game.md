@@ -44,6 +44,15 @@ Read the best practices shared by Human Guild:
 2. [Game Economics](https://github.com/vgrichina/near-lands/blob/main/GAME-ECONOMIES.md)
 
 
+### Learn with Examples
+
+To learn with concrete examples about how to build games on NEAR, we recommend that you start with the examples of BerryClub and NEAR Lands:
+
+1. [BerryClub](https://berryclub.io/):: [source code](https://github.com/evgenykuzyakov/berryclub)
+2. [NEAR Lands](https://lands.near.page/): [source code](https://github.com/vgrichina/near-lands)
+
+
+
 ## Game Engines / Frameworks
 
 Unity3D
