@@ -2,7 +2,7 @@
 
 ## Build DApp with Localization in Mind
 
-In the Open Web world, we should keep in mind your apps will be accessed by users not only by users who speak English, but also people all around the world.
+In the Open Web world, we should keep in mind your apps will be accessed not only by users who speak English, but also people all around the world.
 
 Considering around 30~40% of the users may actaully come from districts like China, Korea, Vietnam, etc., it's important to build your decentralized application with localization ready from the beginning. 
 
