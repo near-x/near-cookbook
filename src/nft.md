@@ -20,7 +20,12 @@ Awesome NFTs Projects and Toolkits built with NEAR
 1. [NFT Example with `near-contract-standard`](https://github.com/near/near-sdk-rs/tree/master/examples/non-fungible-token): Example implementation of a non-fungible token contract which uses `near-contract-standards` and simulation tests.
 2. [NFT Contract Simple Example](https://github.com/near/core-contracts/tree/nft-simple/nft-simple): simple example of how NFT contract looks like
 3. [NFT Contract Standard Implementation](https://github.com/near/near-sdk-rs/tree/master/near-contract-standards/src/non_fungible_token): NFT implementation in NEAR Rust SDK
-4. [Minting NFTs](https://docs.near.org/docs/tutorials/contracts/nfts/minting-nfts): In this tutorial you'll learn how to easily create your own NFTs without doing any software development by using a readily-available smart contract and a decentralized storage solution like IPFS.
+
+
+### Mint NFTs Tutorials
+
+1. [Minting NFTs](https://docs.near.org/docs/tutorials/contracts/nfts/minting-nfts): In this tutorial you'll learn how to easily create your own NFTs without doing any software development by using a readily-available smart contract and a decentralized storage solution like IPFS.
+2. [Create NFTs in Minecraft](https://docs.near.org/docs/tutorials/contracts/nfts/minecraft-nfts): This tutorial will run you through minting Minecraft structures of any size onto the NEAR blockchain.
 
 ### NFT Market Examples
 
