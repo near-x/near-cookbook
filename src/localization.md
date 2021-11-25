@@ -73,7 +73,9 @@ For most DApps, now you can use the public indexer server as specifid in the ind
 
 ### 4. Decentralized Storage
 
-NEAR Procotol is working closely with Decentralized Storage solutions such as Filecoin, Ceramic, Crust, etc., to make it extremely easy to integrate your DApp with decentralized storage solutions. 
+NEAR Procotol is working closely with Decentralized Storage solutions such as Filecoin, Ceramic, Crust, etc., to make it extremely easy to integrate your DApp with decentralized storage solutions.     
+
+Checkout [this](https://docs.near.org/docs/concepts/storage-solutions) for more details.    
 
 #### - IPFS
 
@@ -86,13 +88,13 @@ In order to provide a stable and fast access of IPFS to your users, we **highly 
 
 In case none of those fits your need, please consider to either run a decicated IPFS node and pin all the resources your product need, or use a traditional CDN service like AWS CloudFront and upload a copy of all your resources to it.
 
-#### - Ceramic
+#### - Sia
 
-To Be Added
+https://docs.near.org/docs/concepts/storage-solutions#sia
 
 #### - Arweave
 
-To Be Added
+https://docs.near.org/docs/concepts/storage-solutions#arweave
 
 ### 5. Backend Services
 
