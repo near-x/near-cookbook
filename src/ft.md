@@ -33,3 +33,4 @@ Awesome FTs Projects and Toolkits built with NEAR
 ## Token List
 
 - https://tkn.farm/
+- [Token Address List](https://airtable.com/shruTaQIhz4SPrCkU/tblksPBUffhyRoUhr)
