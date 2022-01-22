@@ -40,7 +40,7 @@ Awesome FTs Projects and Toolkits built with NEAR
 | USDT	 | dac17f958d2ee523a2206206994597c13d831ec7.factory.bridge.near	 | usdt.fakes.testnet |
 | DAI	| 6b175474e89094c44da98b954eedeac495271d0f.factory.bridge.near	| dai.fakes.testnet |
 | USDC	| a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.factory.bridge.near |	usdc.fakes.testnet |
-| wNEAR |	wrap.near	wrap.testnet | |
+| wNEAR |	wrap.near	| wrap.testnet |
 | REF	| token.v2.ref-finance.near	| ref.fakes.testnet| 
 | SKYWARD	| token.skyward.near	| | 
 | OCT	| f5cfbc74057c610c8ef151a439252680ac68c6dc.factory.bridge.near	| | 
