@@ -43,7 +43,7 @@ Awesome FTs Projects and Toolkits built with NEAR
 | wNEAR |	wrap.near	| wrap.testnet |
 | REF	| token.v2.ref-finance.near	| ref.fakes.testnet| 
 | SKYWARD	| token.skyward.near	| | 
-| OCT	| f5cfbc74057c610c8ef151a439252680ac68c6dc.factory.bridge.near	| | 
+| OCT	| f5cfbc74057c610c8ef151a439252680ac68c6dc.factory.bridge.near	| oct.beta_oct_relay.testnet | 
 | PARAS	| token.paras.near	| paras.fakes.testnet| 
 | stNEAR	| meta-pool.near	| | 
 | PULSE	| 52a047ee205701895ee06a375492490ec9c597ce.factory.bridge.near	| pulse.fakes.testnet| 
