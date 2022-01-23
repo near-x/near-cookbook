@@ -34,7 +34,7 @@ Awesome FTs Projects and Toolkits built with NEAR
 
 - https://tkn.farm/
 
-## Token List Address(Testnet)
+## Frequently Used Tokens
 | Name | Address | TestnetAddress |
 | ---- | ---- | ---- |
 | USDT	 | dac17f958d2ee523a2206206994597c13d831ec7.factory.bridge.near	 | usdt.fakes.testnet |
