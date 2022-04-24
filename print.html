@@ -1,0 +1,837 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>NEAR Cookbook</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="eth_to_near.html"><strong aria-hidden="true">1.</strong> Ethereum to NEAR</a></li><li class="chapter-item expanded "><a href="rust_smart_contract.html"><strong aria-hidden="true">2.</strong> Rust Smart Contract</a></li><li class="chapter-item expanded "><a href="near_cli.html"><strong aria-hidden="true">3.</strong> Play with NEAR CLI</a></li><li class="chapter-item expanded "><a href="account.html"><strong aria-hidden="true">4.</strong> Powerful Account Model</a></li><li class="chapter-item expanded "><a href="hiding_blockchain.html"><strong aria-hidden="true">5.</strong> Hiding the Blockchain</a></li><li class="chapter-item expanded "><a href="storage.html"><strong aria-hidden="true">6.</strong> Storage</a></li><li class="chapter-item expanded "><a href="wallet.html"><strong aria-hidden="true">7.</strong> Wallet</a></li><li class="chapter-item expanded "><a href="ft.html"><strong aria-hidden="true">8.</strong> Fungible Token</a></li><li class="chapter-item expanded "><a href="nft.html"><strong aria-hidden="true">9.</strong> Non-Fungible Token</a></li><li class="chapter-item expanded "><a href="game.html"><strong aria-hidden="true">10.</strong> Game</a></li><li class="chapter-item expanded "><a href="indexer.html"><strong aria-hidden="true">11.</strong> Indexer</a></li><li class="chapter-item expanded "><a href="aurora.html"><strong aria-hidden="true">12.</strong> Aurora</a></li><li class="chapter-item expanded "><a href="localization.html"><strong aria-hidden="true">13.</strong> Localization</a></li><li class="chapter-item expanded "><a href="security.html"><strong aria-hidden="true">14.</strong> Security</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">NEAR Cookbook</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ethereum-to-near"><a class="header" href="#ethereum-to-near">Ethereum to NEAR</a></h1>
+<p>As an Ethereum developer, what should I know about NEAR's models and practices?</p>
+<h2 id="near-102-course"><a class="header" href="#near-102-course">NEAR 102 Course</a></h2>
+<p>NEAR 102: Introduction to NEAR for Ethereum Developers</p>
+<ul>
+<li><a href="http://bit.ly/near-102">Browse the Slides</a></li>
+<li><a href="http://crowdcast.io/e/hacktherainbow/13">Watch a Recording</a></li>
+</ul>
+<h2 id="eth-vs-near"><a class="header" href="#eth-vs-near">ETH v.s. NEAR</a></h2>
+<p>Side-by-side comparion between ETH v.s. NEAR for developers</p>
+<ol>
+<li>
+<p>Infrastructure</p>
+<ul>
+<li>scalability and speed</li>
+<li>cost</li>
+</ul>
+</li>
+<li>
+<p>Account Model</p>
+<ul>
+<li>account v.s. address</li>
+<li>sub-accounts</li>
+<li>single key pair v.s. multiple key pairs</li>
+<li>key models: full access v.s. function call key</li>
+</ul>
+</li>
+<li>
+<p><a href="https://bit.ly/near-102-recipes">Solidity v.s Rust (AssemblyScript)</a></p>
+<ul>
+<li>cross-contract call</li>
+<li>(de)serialization</li>
+</ul>
+</li>
+<li>
+<p>Deployment and Versioning</p>
+<ul>
+<li>upgradability</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-smart-contract"><a class="header" href="#rust-smart-contract">Rust Smart Contract</a></h1>
+<h2 id="webassembly"><a class="header" href="#webassembly">WebAssembly</a></h2>
+<h2 id="docs"><a class="header" href="#docs">Docs</a></h2>
+<ul>
+<li><a href="https://www.near-sdk.io/">Rust SDK Book</a> (<a href="https://github.com/near/sdk-docs">source code</a>)</li>
+</ul>
+<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
+<ul>
+<li><a href="https://github.com/near/near-sdk-rs/blob/master/HELP.md">Rust Contract Best Practices</a></li>
+</ul>
+<h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
+<ol>
+<li>Austin Abell, <a href="https://medium.com/coinmonks/comparing-modern-smart-contracting-environments-d821304b96ef">Comparing Modern Smart Contracting Environments: Writing a smart contract with Solidity, NEAR, ink!, Solana, and CosmWasm</a>, 2021/03/22</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="play-with-near-cli"><a class="header" href="#play-with-near-cli">Play with NEAR CLI</a></h1>
+<h3 id="create-xxxnear-or-xxxtestnet-account"><a class="header" href="#create-xxxnear-or-xxxtestnet-account">Create <code>xxx.near</code> or <code>xxx.testnet</code> Account</a></h3>
+<pre><code class="language-bash">near call testnet create_account \
+    '{
+        &quot;new_account_id&quot;: &quot;xxxxxxx.testnet&quot;, 
+        &quot;new_public_key&quot;: &quot;ed25519:DAh6wwBYbakodZaA3QSZvojBF7EceeUkZsdELTEBRoYt&quot;
+    }' \
+    --accountId bot.testnet --deposit 0.1
+</code></pre>
+<h3 id="read-parameters-from-json-file"><a class="header" href="#read-parameters-from-json-file">Read Parameters from JSON File</a></h3>
+<p>The JSON file could be <code>params.json</code>, with content</p>
+<pre><code class="language-json">{
+    &quot;new_account_id&quot;: &quot;xxxxxxx.testnet&quot;,
+    &quot;new_public_key&quot;: &quot;ed25519:DAh6wwBYbakodZaA3QSZvojBF7EceeUkZsdELTEBRoYt&quot;
+}
+</code></pre>
+<p>Run the command below to create the account:</p>
+<pre><code class="language-bash">near call testnet create_account &quot;$(&lt; params.json)&quot; --accountId bot.testnet --deposit 0.1
+</code></pre>
+<h3 id="send-nep141-token-to-another-account"><a class="header" href="#send-nep141-token-to-another-account">Send NEP141 token to another account</a></h3>
+<p>Here we take <code>Banana</code> from BerryClub for example. </p>
+<p>Suppose we want to transfer 1 Banana from the user <code>robertyan.testnet</code> to <code>linus.testnet</code>. </p>
+<ol>
+<li>If the receiver hasn't regisered on NEP141 before, we first need to deposit storage cost for the receiver <code>linus.testnet</code> (i.e. register the account on the NEP141 contract) with a small amount of NEAR. </li>
+<li>Then we'll be able to call <code>ft_transfer</code> to transfer Banana to the receiver. Since the precision of Banana is 18 digits, the amount is <code>1000000000000000000</code> for sending 1 Banana</li>
+</ol>
+<h4 id="testnet"><a class="header" href="#testnet">TestNet</a></h4>
+<p>You need to run <code>storage_deposit</code> first to register the receiver account on Banana contract <code>berryclub.testnet</code></p>
+<pre><code class="language-bash">near call berryclub.testnet \
+    storage_deposit '{&quot;account_id&quot;: &quot;linus.testnet&quot;}' \
+    --account-id robertyan.testnet --amount 0.025
+</code></pre>
+<p>Then you can send some tokens to the receiver</p>
+<pre><code class="language-bash">near call berryclub.testnet ft_transfer \
+    '{
+        &quot;receiver_id&quot;: &quot;linus.testnet&quot;, 
+        &quot;amount&quot;: &quot;1000000000000000000&quot;
+    }' \
+    --account-id robertyan.testnet --amount 0.000000000000000000000001
+</code></pre>
+<h4 id="mainnet"><a class="header" href="#mainnet">MainNet</a></h4>
+<p>You need to run <code>storage_deposit</code> first to register the receiver account on Banana contract <code>berryclub.ek.near</code></p>
+<pre><code class="language-bash">near call berryclub.ek.near storage_deposit '{&quot;account_id&quot;: &quot;linus.near&quot;}' \
+    --account-id robertyan.near --amount 0.025
+</code></pre>
+<p>Then you can send some tokens to the receiver</p>
+<pre><code class="language-bash">near call berryclub.ek.near ft_transfer \
+    '{
+        &quot;receiver_id&quot;: &quot;linus.near&quot;, 
+        &quot;amount&quot;: &quot;1000000000000000000&quot;
+    }' \
+    --account-id robertyan.near --amount 0.000000000000000000000001
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="flexible-account-model"><a class="header" href="#flexible-account-model">Flexible Account Model</a></h1>
+<ol>
+<li>NEAR Account Introduction: https://docs.near.org/docs/concepts/account | https://medium.com/nearprotocol/an-introduction-to-near-accounts-f96cb84ef091</li>
+<li>NEAR Account Spec: https://nomicon.io/DataStructures/Account.html</li>
+<li>NEAR Wallet: MainNet https://wallet.near.org/ | TestNet https://wallet.testnet.near.org/ (GitHub: https://github.com/near/near-wallet)</li>
+<li>NEAR Explorer: MainNet https://explorer.near.org/ | TestNet https://explorer.testnet.near.org/ (GitHub: https://github.com/near/near-explorer)</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hiding-the-blockchain"><a class="header" href="#hiding-the-blockchain">Hiding the Blockchain</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="storage"><a class="header" href="#storage">Storage</a></h1>
+<h2 id="storage-staking-on-near"><a class="header" href="#storage-staking-on-near">Storage Staking on NEAR</a></h2>
+<h3 id="storage-management-standard"><a class="header" href="#storage-management-standard">Storage Management Standard</a></h3>
+<ul>
+<li><a href="https://nomicon.io/Standards/StorageManagement.html">Storage Management</a> (<a href="https://github.com/near/NEPs/discussions/145">NEP-145</a>)</li>
+</ul>
+<h2 id="decentralized-storage"><a class="header" href="#decentralized-storage">Decentralized Storage</a></h2>
+<h3 id="filecoin"><a class="header" href="#filecoin">Filecoin</a></h3>
+<ul>
+<li>Filecoin-NEAR Bridge: https://near.storage</li>
+<li>Grant: https://github.com/filecoin-project/devgrants/blob/master/rfps/near-and-filecoin.md</li>
+</ul>
+<h3 id="crust"><a class="header" href="#crust">Crust</a></h3>
+<ul>
+<li>Post: https://medium.com/nearprotocol/crust-network-partners-with-near-protocol-to-introduce-decentralized-storage-solutions-a17edeaf29bb</li>
+</ul>
+<h3 id="arweave"><a class="header" href="#arweave">Arweave</a></h3>
+<h3 id="ceramic"><a class="header" href="#ceramic">Ceramic</a></h3>
+<h3 id="sia"><a class="header" href="#sia">Sia</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wallet"><a class="header" href="#wallet">Wallet</a></h1>
+<p>Topics</p>
+<ol>
+<li>Wallet Login</li>
+<li>Account Creation</li>
+<li>Tokens: Fungible Tokens / Non-Fungible Tokens</li>
+<li>Linkdrop</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fungible-token"><a class="header" href="#fungible-token">Fungible Token</a></h1>
+<p>Awesome FTs Projects and Toolkits built with NEAR</p>
+<h2 id="standards"><a class="header" href="#standards">Standards</a></h2>
+<p><a href="https://nomicon.io/Standards/FungibleToken/README.html">Fungible Token Standards</a></p>
+<ul>
+<li><a href="https://nomicon.io/Standards/FungibleToken/Core.html">Fungible Token</a> (<a href="https://github.com/near/NEPs/issues/141">NEP-141</a>)</li>
+<li><a href="https://nomicon.io/Standards/FungibleToken/Metadata.html">Fungible Token Metadata</a> (<a href="https://github.com/near/NEPs/discussions/148">NEP-148</a>)</li>
+</ul>
+<h2 id="toolkits"><a class="header" href="#toolkits">Toolkits</a></h2>
+<ul>
+<li><a href="https://github.com/near/near-sdk-rs/tree/master/near-contract-standards/src/fungible_token">FT Contract</a>: Fungible Token contract implementation</li>
+<li><a href="https://github.com/near-apps/ft-launcher">FT Launcher</a>: launch FT project with easy user on-boarding</li>
+<li><a href="https://docs.near.org/docs/roles/integrator/exchange-integration#fungible-tokens">Interact with FT with CLI or RPC</a>: basic operations with FT including read balance and metadata, transfer tokens, and <code>transfer and call</code></li>
+</ul>
+<h3 id="core-contracts-with-ft-support"><a class="header" href="#core-contracts-with-ft-support">Core Contracts with FT Support</a></h3>
+<ul>
+<li>linkdrop</li>
+<li>lockup</li>
+</ul>
+<h2 id="dapps"><a class="header" href="#dapps">DApps</a></h2>
+<ul>
+<li>
+<p><a href="https://app.ref.finance/">Ref Finance</a></p>
+<ul>
+<li><a href="https://github.com/ref-finance/ref-contracts">contracts</a></li>
+<li><a href="https://github.com/ref-finance/ref-ui">UI</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://metapool.narwallets.com/">Meta Pool</a></p>
+<ul>
+<li><a href="https://github.com/Narwallets/meta-pool">contracts</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="token-list"><a class="header" href="#token-list">Token List</a></h2>
+<ul>
+<li>https://tkn.farm/</li>
+</ul>
+<h2 id="frequently-used-tokens"><a class="header" href="#frequently-used-tokens">Frequently Used Tokens</a></h2>
+<table><thead><tr><th>Name</th><th>Mainnet Address</th><th>Testnet Address</th></tr></thead><tbody>
+<tr><td>USDT</td><td>dac17f958d2ee523a2206206994597c13d831ec7.factory.bridge.near</td><td>usdt.fakes.testnet</td></tr>
+<tr><td>DAI</td><td>6b175474e89094c44da98b954eedeac495271d0f.factory.bridge.near</td><td>dai.fakes.testnet</td></tr>
+<tr><td>USDC</td><td>a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.factory.bridge.near</td><td>usdc.fakes.testnet</td></tr>
+<tr><td>wNEAR</td><td>wrap.near</td><td>wrap.testnet</td></tr>
+<tr><td>REF</td><td>token.v2.ref-finance.near</td><td>ref.fakes.testnet</td></tr>
+<tr><td>SKYWARD</td><td>token.skyward.near</td><td></td></tr>
+<tr><td>OCT</td><td>f5cfbc74057c610c8ef151a439252680ac68c6dc.factory.bridge.near</td><td>oct.beta_oct_relay.testnet</td></tr>
+<tr><td>PARAS</td><td>token.paras.near</td><td>paras.fakes.testnet</td></tr>
+<tr><td>stNEAR</td><td>meta-pool.near</td><td></td></tr>
+<tr><td>PULSE</td><td>52a047ee205701895ee06a375492490ec9c597ce.factory.bridge.near</td><td>pulse.fakes.testnet</td></tr>
+<tr><td>BANANA</td><td>berryclub.ek.near</td><td>banana.ft-fin.testnet</td></tr>
+<tr><td>WETH</td><td>c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.factory.bridge.near</td><td>weth.fakes.testnet</td></tr>
+<tr><td>1INCH</td><td>111111111117dc0aa78b770fa6a738034120c302.factory.bridge.near</td><td></td></tr>
+<tr><td>GRT</td><td>c944e90c64b2c07662a292be6244bdf05cda44a7.factory.bridge.near</td><td></td></tr>
+<tr><td>CUCUMBER</td><td>farm.berryclub.ek.near</td><td></td></tr>
+<tr><td>HT</td><td>6f259637dcd74c767781e37bc6133cd6a68aa161.factory.bridge.near</td><td></td></tr>
+<tr><td>GTC</td><td>de30da39c46104798bb5aa3fe8b9e0e1f348163f.factory.bridge.near</td><td></td></tr>
+<tr><td>UNI</td><td>1f9840a85d5af5bf1d1762f925bdaddc4201f984.factory.bridge.near</td><td></td></tr>
+<tr><td>WBTC</td><td>2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near</td><td></td></tr>
+<tr><td>LINK</td><td>514910771af9ca656af840dff83e8264ecf986ca.factory.bridge.near</td><td></td></tr>
+<tr><td>HAPI</td><td>d9c2d319cd7e6177336b0a9c93c21cb48d84fb54.factory.bridge.near</td><td>hapi.fakes.testnet</td></tr>
+<tr><td>1MIL</td><td>a4ef4b0b23c1fc81d3f9ecf93510e64f58a4a016.factory.bridge.near</td><td></td></tr>
+<tr><td>marmaj</td><td>marmaj.tkn.near</td><td></td></tr>
+<tr><td>Cheddar</td><td>token.cheddar.near</td><td></td></tr>
+<tr><td>ETH</td><td>aurora</td><td>eth.fakes.testnet</td></tr>
+<tr><td>PXT</td><td>pixeltoken.near</td><td></td></tr>
+<tr><td>DBIO</td><td>dbio.near</td><td></td></tr>
+<tr><td>AURORA</td><td>aaaaaa20d9e0e2461697782ef11675f668207961.factory.bridge.near</td><td>aurora.fakes.testnet</td></tr>
+<tr><td>$META</td><td>meta-token.near</td><td></td></tr>
+<tr><td>POTATO</td><td>v1.dacha-finance.near</td><td></td></tr>
+<tr><td>FLX</td><td>3ea8ea4237344c9931214796d9417af1a1180770.factory.bridge.near</td><td></td></tr>
+<tr><td>UMINT</td><td>e99de844ef3ef72806cf006224ef3b813e82662f.factory.bridge.near</td><td></td></tr>
+<tr><td>nUSDO</td><td>v3.oin_finance.near</td><td></td></tr>
+<tr><td>OIN</td><td>9aeb50f542050172359a0e1a25a9933bc8c01259.factory.bridge.near</td><td></td></tr>
+<tr><td>MYRIA</td><td>myriadcore.near</td><td></td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="non-fungible-token"><a class="header" href="#non-fungible-token">Non-Fungible Token</a></h1>
+<p>Awesome NFTs Projects and Toolkits built with NEAR</p>
+<h2 id="standards-1"><a class="header" href="#standards-1">Standards</a></h2>
+<p><a href="https://nomicon.io/Standards/NonFungibleToken/README.html">Non-Fungible Token Standards</a></p>
+<ul>
+<li><a href="https://nomicon.io/Standards/NonFungibleToken/Core.html">Non-Fungible Token</a> (<a href="https://github.com/near/NEPs/discussions/171">NEP-171</a>)</li>
+<li><a href="https://nomicon.io/Standards/NonFungibleToken/Metadata.html">Non-Fungible Token Metadata</a> (<a href="https://github.com/near/NEPs/discussions/177">NEP-177</a>)</li>
+<li><a href="https://nomicon.io/Standards/NonFungibleToken/ApprovalManagement.html">Non-Fungible Token Approval Management</a> (<a href="https://github.com/near/NEPs/discussions/178">NEP-178</a>)</li>
+<li><a href="https://nomicon.io/Standards/NonFungibleToken/Enumeration.html">Non-Fungible Token Enumeration</a> (<a href="https://github.com/near/NEPs/discussions/181">NEP-181</a>)</li>
+<li><a href="https://nomicon.io/Standards/NonFungibleToken/Payout.html">Non-Fungible Token Royalty Payout</a> (<a href="https://github.com/near/NEPs/discussions/199">NEP-199</a>)</li>
+</ul>
+<h2 id="example-projects"><a class="header" href="#example-projects">Example Projects</a></h2>
+<h3 id="nft-contract-examples"><a class="header" href="#nft-contract-examples">NFT Contract Examples</a></h3>
+<ol>
+<li><a href="https://github.com/near/near-sdk-rs/tree/master/examples/non-fungible-token">NFT Example with <code>near-contract-standard</code></a>: Example implementation of a non-fungible token contract which uses <code>near-contract-standards</code> and simulation tests.</li>
+<li><a href="https://github.com/near/core-contracts/tree/nft-simple/nft-simple">NFT Contract Simple Example</a>: simple example of how NFT contract looks like</li>
+<li><a href="https://github.com/near/near-sdk-rs/tree/master/near-contract-standards/src/non_fungible_token">NFT Contract Standard Implementation</a>: NFT implementation in NEAR Rust SDK</li>
+</ol>
+<h3 id="mint-nfts-tutorials"><a class="header" href="#mint-nfts-tutorials">Mint NFTs Tutorials</a></h3>
+<ol>
+<li><a href="https://docs.near.org/docs/tutorials/contracts/nfts/minting-nfts">Minting NFTs</a>: In this tutorial you'll learn how to easily create your own NFTs without doing any software development by using a readily-available smart contract and a decentralized storage solution like IPFS.</li>
+<li><a href="https://docs.near.org/docs/tutorials/contracts/nfts/minecraft-nfts">Create NFTs in Minecraft</a>: This tutorial will run you through minting Minecraft structures of any size onto the NEAR blockchain.</li>
+</ol>
+<h3 id="nft-market-examples"><a class="header" href="#nft-market-examples">NFT Market Examples</a></h3>
+<ol>
+<li><a href="https://github.com/near-apps/nft-market">NFT Marketplace</a> (<a href="https://near-apps.github.io/nft-market/">demo</a>): PoC for NFT market projects</li>
+<li><a href="https://github.com/near-apps/nft-launcher">NFT Launcher</a>: launch NFT project with easy user on-boarding</li>
+</ol>
+<h3 id="rest-api"><a class="header" href="#rest-api">REST API</a></h3>
+<ol>
+<li><a href="https://docs.near.org/docs/api/near-api-rest-server">NEAR REST API Server</a>: perform blockchain calls with the simple REST API, with NFT support such as mint NFT, transfer NFT, view NFT owners with the POST/GET requests</li>
+</ol>
+<h3 id="more-nft-examples"><a class="header" href="#more-nft-examples">More NFT Examples</a></h3>
+<ol>
+<li><a href="https://github.com/willemneal/tenk">10K</a>: Template for making a NFT contract with a raffle of tokens</li>
+</ol>
+<h2 id="dapps-1"><a class="header" href="#dapps-1">DApps</a></h2>
+<ol>
+<li><a href="https://mintbase.io/">Mintbase</a>: Digital assets minted and backed by you</li>
+<li><a href="http://paras.id">Paras</a>: Create, Trade and Collect Digital Art Cards (DACs)</li>
+<li><a href="https://hhs.art/">Too Rich 秃力富房产</a>: NFT digital art exhibited on Taobao Maker Festival</li>
+<li><a href="https://nft.hiphop/">NFT Hiphop</a>: NFT collection that featured artists from the 70s to the present, built by Universal Hip Hop Museum, The NEAR Protocol, and Ed Young</li>
+<li><a href="https://awesomenear.com/categories/nft/">more NFT projects on NEAR</a></li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="game"><a class="header" href="#game">Game</a></h1>
+<h2 id="why-building-games-on-near"><a class="header" href="#why-building-games-on-near">Why Building Games on NEAR?</a></h2>
+<h4 id="1-fast-and-scalable"><a class="header" href="#1-fast-and-scalable">1. Fast and Scalable</a></h4>
+<p>NEAR’s <a href="https://near.org/papers/nightshade/">sharded infrastructure</a> make it possible to scale infinitely. The transactions like transfer can be completed instantly on NEAR, and with very low gas fees.</p>
+<p>The real-time transaction, low gas fee and high scalability makes it possible to launch world-class game with millions of users.</p>
+<h4 id="2-great-user-experience"><a class="header" href="#2-great-user-experience">2. Great User Experience</a></h4>
+<p>The NEAR Account and Keys model, Wallet and APIs make it easy to build games with great user experience on NEAR.</p>
+<p>The <a href="https://docs.near.org/docs/concepts/account">NEAR account</a> is human readable, which makes it able to be used directly for roles in games.</p>
+<p>The <a href="https://docs.near.org/docs/concepts/account#function-call-keys">Function Call Keys</a> make it possible to create secure keys with restricted access.</p>
+<p>With the help of NEAR's function call key, web wallet and near APIs, it's quite easy to integrate NEAR with game engines or your web/mobile frontend, and user don't have to install browser extensions to launch the game in web or mobile app.</p>
+<p>The progressive onboarding process makes it quite easy for users to create a new account using email or SMS, without the necessity of learning about the concepts of seed phrases, gas fees, etc.</p>
+<h4 id="3-developer-friendly"><a class="header" href="#3-developer-friendly">3. Developer Friendly</a></h4>
+<p>With NEAR, developers can build smart contracts with common languages that they're already familiar with, such as <a href="https://docs.near.org/docs/develop/contracts/rust/intro">Rust</a>, <a href="https://docs.near.org/docs/develop/contracts/as/intro">TypeScript</a>, or build with <a href="https://docs.near.org/docs/develop/eth/evm">Solidity on Aurora</a> if they prefer EVM toolings.</p>
+<p>Developers can also build the games with NEAR libraries in <a href="https://docs.near.org/docs/develop/front-end/near-api-js">JavaScript</a>, Python, or APIs integrated with game frameworks such as Unity, Godot.</p>
+<p>Also, 30% of the gas fees spent on the contracts will be paid to developers.</p>
+<h4 id="4-cross-chain-interoperability"><a class="header" href="#4-cross-chain-interoperability">4. Cross-Chain Interoperability</a></h4>
+<p>Assets including FTs / NFTs can be bridged to Ethereum efficiently and easily with the help of <a href="https://near.org/bridge/">Rainbow Bridge</a>.</p>
+<p>Read more about why NEAR is attractive to developers on <a href="https://near.org/developers/">https://near.org/developers/</a></p>
+<h2 id="build-games-on-near"><a class="header" href="#build-games-on-near">Build Games on NEAR</a></h2>
+<p>Read the best practices shared by Human Guild:</p>
+<ol>
+<li><a href="https://github.com/vgrichina/near-lands/blob/main/HOWTO.md">How to Use NEAR in a Game</a></li>
+<li><a href="https://github.com/vgrichina/near-lands/blob/main/GAME-ECONOMIES.md">Game Economics</a></li>
+</ol>
+<h3 id="learn-with-examples"><a class="header" href="#learn-with-examples">Learn with Examples</a></h3>
+<p>To learn with concrete examples about how to build games on NEAR, we recommend that you start with the examples of BerryClub and NEAR Lands:</p>
+<ol>
+<li><a href="https://berryclub.io/">BerryClub</a>: <a href="https://github.com/evgenykuzyakov/berryclub">source code</a></li>
+<li><a href="https://lands.near.page/">NEAR Lands</a>: <a href="https://github.com/vgrichina/near-lands">source code</a></li>
+</ol>
+<h2 id="game-engines--frameworks"><a class="header" href="#game-engines--frameworks">Game Engines / Frameworks</a></h2>
+<p>Unity3D</p>
+<ul>
+<li><a href="https://github.com/near/near-api-unity">near-api-unity</a></li>
+</ul>
+<p>Godot</p>
+<ul>
+<li><a href="https://github.com/svntax/godot-near-sdk">godot-near-sdk</a></li>
+</ul>
+<p>Cocos2D</p>
+<h2 id="games-built-on-near"><a class="header" href="#games-built-on-near">Games built on NEAR</a></h2>
+<ul>
+<li><a href="https://www.dropbox.com/s/ucxm8m7xg8n9ra1/Human%20Guild%20Projects%20%28Aug%2721%29.pdf?dl=0">List of Games Working with Human Guild</a></li>
+<li><a href="https://awesomenear.com/categories/gaming/">Awesome NEAR: Gaming</a></li>
+</ul>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<ul>
+<li><a href="https://berryclub.io/">BerryClub</a>: drawing pixesl to earn</li>
+<li><a href="https://lands.near.page/">NEAR Lands</a>: massive multiplayer online world</li>
+<li><a href="https://opgames.org/">OP Games</a>: one game platform, procotol and community on NEAR</li>
+<li><a href="https://hashrush.com/">Hash Rush</a>: a mix between DOTA and Warcraft</li>
+<li><a href="https://www.fygtapp.com/">鲱鱼罐头 / Feiyu</a>: mobile app, 1~2M User Base</li>
+<li><a href="https://zed.run/">Zed Run</a>: horse racing and NFTs</li>
+<li><a href="https://corgis3d.com/">Corgis3D</a>: NFTs similar to CryptoKitties</li>
+<li><a href="https://pixelparty.pixeldapps.co/">Pixelparty</a>: pixel games extended from BerryClub</li>
+<li><a href="https://marble.place/">Marble Place</a>: virtual world being built on NEAR</li>
+<li><a href="https://shroomkingdom.net/">Shroom Kingdom</a>: play to Earn Game based on Mario</li>
+<li><a href="https://www.mtvrs.app/">MTVRS</a>: game studio</li>
+</ul>
+<h2 id="community"><a class="header" href="#community">Community</a></h2>
+<ul>
+<li><a href="https://humanguild.io/">Human Guild</a>
+<ul>
+<li>connected thousands of people</li>
+<li>Creator Economy / Gaming</li>
+<li>help dozens of projects launch on NEAR</li>
+</ul>
+</li>
+</ul>
+<h2 id="workshop"><a class="header" href="#workshop">Workshop</a></h2>
+<ul>
+<li><a href="https://github.com/near-x/ncd-cn/raw/master/cohorts/ncd-cn-2/slides/NEAR%20%E8%AE%A4%E8%AF%81%E5%BC%80%E5%8F%91%E8%80%85%EF%BC%889%EF%BC%89%EF%BC%9ANEAR%20%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5.pdf">NEAR Game Development Practice (in Chinese)</a> / <a href="https://www.bilibili.com/video/BV1ZU4y1A7RV">Video</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="indexer"><a class="header" href="#indexer">Indexer</a></h1>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<ul>
+<li><a href="https://docs.near.org/docs/tools/near-indexer-framework">What is Indexer Framework</a></li>
+<li><a href="https://github.com/near/nearcore/tree/master/chain/indexer">Source Code</a></li>
+</ul>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<h3 id="near-indexer-for-explorer"><a class="header" href="#near-indexer-for-explorer">NEAR Indexer for Explorer</a></h3>
+<ul>
+<li><a href="https://github.com/near/near-indexer-for-explorer">NEAR Indexer for Explorer</a></li>
+</ul>
+<h4 id="shared-public-access"><a class="header" href="#shared-public-access">Shared Public Access</a></h4>
+<p>NEAR runs the indexer and maintains it for NEAR Explorer, NEAR Wallet, and some other internal services. It proved to be a great source of data for various analysis and services, so we decided to give a shared read-only public access to the data:</p>
+<ul>
+<li><strong>testnet</strong> credentials: <code>postgres://public_readonly:nearprotocol@35.184.214.98/testnet_explorer</code></li>
+<li><strong>mainnet</strong> credentials: <code>postgres://public_readonly:nearprotocol@104.199.89.51/mainnet_explorer</code></li>
+</ul>
+<h4 id="database-structure"><a class="header" href="#database-structure">Database Structure</a></h4>
+<p><img src="https://github.com/near/near-indexer-for-explorer/raw/master/docs/near-indexer-for-explorer-db.png" alt="" /></p>
+<h2 id="common-sql-recipes"><a class="header" href="#common-sql-recipes">Common SQL Recipes</a></h2>
+<h4 id="total-new-accounts-by-date"><a class="header" href="#total-new-accounts-by-date">Total New Accounts By Date</a></h4>
+<pre><code class="language-SQL">SELECT
+        TIMESTAMP ‘epoch’ + DIV(DIV(blocks.block_timestamp, 1000000000), 60 * 60 * 24) * INTERVAL ‘1 day’ AS “date”,
+        COUNT(*) as new_accounts_count_by_date
+FROM accounts
+JOIN receipts ON receipts.receipt_id = accounts.created_by_receipt_id
+JOIN blocks ON blocks.block_hash = receipts.included_in_block_hash
+GROUP BY “date”
+ORDER BY “date”
+</code></pre>
+<h4 id="top-10-accounts-with-most-transactions-in-past-two-weeks"><a class="header" href="#top-10-accounts-with-most-transactions-in-past-two-weeks">Top 10 Accounts with most Transactions in Past Two Weeks</a></h4>
+<pre><code class="language-SQL">SELECT signer_account_id,
+        COUNT(*) AS transactions_count
+FROM transactions
+WHERE transactions.block_timestamp &gt;= (cast(EXTRACT(EPOCH FROM NOW()) - 60 * 60 * 24 * 14 AS bigint) * 1000 * 1000 * 1000)
+AND transactions.block_timestamp &lt; (cast(EXTRACT(EPOCH FROM NOW()) AS bigint) * 1000 * 1000 * 1000)
+GROUP BY signer_account_id
+ORDER BY transactions_count DESC
+LIMIT 10
+</code></pre>
+<h4 id="active-accounts-by-date"><a class="header" href="#active-accounts-by-date">Active Accounts by Date</a></h4>
+<pre><code class="language-SQL">SELECT
+        TIMESTAMP 'epoch' + DIV(DIV(transactions.block_timestamp, 1000000000), 60 * 60 * 24) * INTERVAL '1 day' AS &quot;date&quot;,
+        COUNT(distinct transactions.signer_account_id) as active_accounts_count_by_date
+      FROM transactions
+      JOIN execution_outcomes ON execution_outcomes.receipt_id = transactions.converted_into_receipt_id
+      WHERE execution_outcomes.status IN ('SUCCESS_VALUE', 'SUCCESS_RECEIPT_ID') and 
+      TIMESTAMP 'epoch' + DIV(DIV(transactions.block_timestamp, 1000000000), 60 * 60 * 24) * INTERVAL '1 day' &gt; current_date -7 
+      GROUP BY &quot;date&quot;
+      ORDER BY &quot;date&quot;
+</code></pre>
+<h2 id="real-world-examples"><a class="header" href="#real-world-examples">Real-World Examples</a></h2>
+<h3 id="berryclub-wayback"><a class="header" href="#berryclub-wayback">BerryClub Wayback</a></h3>
+<p><a href="https://wayback.berryclub.io/">BerryClub Wayback</a> used indexer to fetch 50 edits randomly from all the edits or by a user</p>
+<ul>
+<li><a href="https://github.com/vgrichina/berry-wayback/blob/master/indexer.js">indexer client source code</a></li>
+</ul>
+<h4 id="find-edits-source-code"><a class="header" href="#find-edits-source-code">find edits: <a href="https://github.com/vgrichina/berry-wayback/blob/e177f484aa3f8e5ad8fcb0619250edf0db242d47/indexer.js#L23-L39">source code</a></a></h4>
+<blockquote>
+<p>Fetch 50 edits randomly from all the edits or edits by a user</p>
+</blockquote>
+<pre><code class="language-js">async function findEdits(accountId) {
+    console.log('findEdits', accountId);
+
+    return withPgClient(async client =&gt; {
+        const { rows } = await client.query(`
+            SELECT included_in_block_timestamp AS block_timestamp, included_in_block_hash AS block_hash
+            FROM receipts ${accountId ? '' : `TABLESAMPLE SYSTEM(0.05)`}
+            WHERE receiver_account_id = 'berryclub.ek.near'
+                ${accountId ? `AND predecessor_account_id = $1` : ''}
+            ORDER BY random()
+            LIMIT 50
+            `, accountId ? [accountId] : []);
+
+        console.log(`Found ${rows.length} rows`);
+        return rows;
+    })
+}
+</code></pre>
+<h3 id="wallet-contract-helper"><a class="header" href="#wallet-contract-helper">Wallet Contract Helper</a></h3>
+<p>NEAR Wallet used indexer to query necessary information related to accounts, such as activities, FTs/NFTs owned by the user, etc.</p>
+<ul>
+<li><a href="https://github.com/near/near-contract-helper/blob/master/middleware/indexer.js">indexer client source code</a></li>
+</ul>
+<h4 id="findaccountactivity-source-code"><a class="header" href="#findaccountactivity-source-code">findAccountActivity: <a href="https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L39-L67">source code</a></a></h4>
+<blockquote>
+<p>Show account activities in wallet</p>
+</blockquote>
+<pre><code class="language-js">const findAccountActivity = async (ctx) =&gt; {
+    const { accountId } = ctx.params;
+    let { offset, limit = 10 } = ctx.request.query;
+    if (!offset) {
+        offset = '9999999999999999999';
+    }
+    const { rows } = await pool.query(`
+        select
+            included_in_block_hash block_hash,
+            included_in_block_timestamp block_timestamp,
+            originated_from_transaction_hash hash,
+            index_in_action_receipt action_index,
+            predecessor_account_id signer_id,
+            receiver_account_id receiver_id,
+            action_kind,
+            args
+        from action_receipt_actions
+        join receipts using(receipt_id)
+        where
+            receipt_predecessor_account_id != 'system' and
+            (receipt_predecessor_account_id = $1 or receipt_receiver_account_id = $1) and
+            $2 &gt; receipt_included_in_block_timestamp
+        order by receipt_included_in_block_timestamp desc
+        limit $3
+        ;
+    `, [accountId, offset, limit]);
+
+    ctx.body = rows;
+};
+</code></pre>
+<h4 id="findaccountsbypublickey-source-code"><a class="header" href="#findaccountsbypublickey-source-code">findAccountsByPublicKey: <a href="https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L69-L80">source code</a></a></h4>
+<blockquote>
+<p>Find accounts by public key, so when you input seed phrase, wallet is able to know which account is related to this seed phrase.</p>
+</blockquote>
+<pre><code class="language-js">const findAccountsByPublicKey = async (ctx) =&gt; {
+    const { publicKey } = ctx.params;
+    const { rows } = await pool.query(`
+        SELECT DISTINCT account_id
+        FROM access_keys
+        JOIN accounts USING (account_id)
+        WHERE public_key = $1
+            AND accounts.deleted_by_receipt_id IS NULL
+            AND access_keys.deleted_by_receipt_id IS NULL
+    `, [publicKey]);
+    ctx.body = rows.map(({ account_id }) =&gt; account_id);
+};
+</code></pre>
+<h4 id="findlikelytokens-source-code"><a class="header" href="#findlikelytokens-source-code">findLikelyTokens: <a href="https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L94-L127">source code</a></a></h4>
+<blockquote>
+<p>List the FT tokens related to the current user.</p>
+</blockquote>
+<pre><code class="language-js">const findLikelyTokens = async (ctx) =&gt; {
+    const { accountId } = ctx.params;
+
+    const received = `
+        select distinct receipt_receiver_account_id as receiver_account_id
+        from action_receipt_actions
+        where args-&gt;'args_json'-&gt;&gt;'receiver_id' = $1
+            and action_kind = 'FUNCTION_CALL'
+            and args-&gt;&gt;'args_json' is not null
+            and args-&gt;&gt;'method_name' in ('ft_transfer', 'ft_transfer_call')
+    `;
+
+    const mintedWithBridge = `
+        select distinct receipt_receiver_account_id as receiver_account_id from (
+            select args-&gt;'args_json'-&gt;&gt;'account_id' as account_id, receipt_receiver_account_id
+            from action_receipt_actions
+            where action_kind = 'FUNCTION_CALL' and
+                receipt_predecessor_account_id = $2 and
+                args-&gt;&gt;'method_name' = 'mint'
+        ) minted_with_bridge
+        where account_id = $1
+    `;
+
+    const calledByUser = `
+        select distinct receipt_receiver_account_id as receiver_account_id
+        from action_receipt_actions
+        where receipt_predecessor_account_id = $1
+            and action_kind = 'FUNCTION_CALL'
+            and (args-&gt;&gt;'method_name' like 'ft_%' or args-&gt;&gt;'method_name' = 'storage_deposit')
+    `;
+
+    const { rows } = await pool.query([received, mintedWithBridge, calledByUser].join(' union '), [accountId, BRIDGE_TOKEN_FACTORY_ACCOUNT_ID]);
+    ctx.body = rows.map(({ receiver_account_id }) =&gt; receiver_account_id);
+};
+</code></pre>
+<h4 id="findlikelynfts-source-code"><a class="header" href="#findlikelynfts-source-code">findLikelyNFTs: <a href="https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L130-L146">source code</a></a></h4>
+<blockquote>
+<p>List the NFT tokens related to the current user.</p>
+</blockquote>
+<pre><code class="language-js">const findLikelyNFTs = async (ctx) =&gt; {
+    const { accountId } = ctx.params;
+
+    const received = `
+        select distinct receipt_receiver_account_id as receiver_account_id
+        from action_receipt_actions
+        where args-&gt;'args_json'-&gt;&gt;'receiver_id' = $1
+            and action_kind = 'FUNCTION_CALL'
+            and args-&gt;&gt;'args_json' is not null
+            and args-&gt;&gt;'method_name' like 'nft_%'
+    `;
+
+    // TODO: How to query minted tokens?
+
+    const { rows } = await pool.query([received].join(' union '), [accountId]);
+    ctx.body = rows.map(({ receiver_account_id }) =&gt; receiver_account_id);
+};
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aurora"><a class="header" href="#aurora">Aurora</a></h1>
+<h2 id="introduction-to-aurora"><a class="header" href="#introduction-to-aurora">Introduction to Aurora</a></h2>
+<ul>
+<li><a href="https://aurora.dev/">Aurora Home</a></li>
+<li><a href="https://doc.aurora.dev/">Aurora Docs</a></li>
+<li><a href="https://near.org/blog/aurora-launches-near/">Aurora launches on NEAR Protocol</a> (<a href="https://mp.weixin.qq.com/s/ebz3glZEGTNpLya7R6GrsQ">中文版</a>)</li>
+</ul>
+<h3 id="design--discussion"><a class="header" href="#design--discussion">Design &amp; Discussion</a></h3>
+<ul>
+<li><a href="https://gov.near.org/t/evm-runtime-base-token/340">ETH as base token</a></li>
+<li><a href="https://github.com/near/NEPs/pull/106">EVM runtime</a></li>
+</ul>
+<h3 id="dev-docs"><a class="header" href="#dev-docs">Dev Docs</a></h3>
+<ul>
+<li><a href="https://doc.aurora.dev/develop/networks">Aurora Dev Docs</a></li>
+<li><a href="https://docs.near.org/docs/develop/evm/introduction">Aurora Introduction</a></li>
+<li>Examples
+<ul>
+<li><a href="https://doc.aurora.dev/develop/start/metamask">Deployment with MetaMask and Remix</a></li>
+<li><a href="https://doc.aurora.dev/develop/start/truffle">Deployment with Truffle</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="tooling"><a class="header" href="#tooling">Tooling</a></h3>
+<ul>
+<li><a href="https://github.com/aurora-is-near/aurora-cli">Aurora CLI</a></li>
+<li><a href="https://github.com/aurora-is-near/near-web3-provider">NEAR Web3 Provider</a></li>
+<li><a href="https://github.com/aurora-is-near/aurora.js">aurora.js</a></li>
+<li><a href="https://github.com/aurora-is-near/aurora-relayer">Aurora Relayer</a></li>
+</ul>
+<h2 id="rainbow-bridge"><a class="header" href="#rainbow-bridge">Rainbow Bridge</a></h2>
+<h3 id="frontend"><a class="header" href="#frontend">Frontend</a></h3>
+<ul>
+<li><a href="http://ethereum.bridgetonear.org/">MainNet</a></li>
+<li><a href="https://ropsten.bridgetonear.org/">TestNet</a></li>
+</ul>
+<h3 id="design"><a class="header" href="#design">Design</a></h3>
+<ul>
+<li><a href="https://near.org/blog/eth-near-rainbow-bridge/">ETH-NEAR Rainbow Bridge</a> (<a href="https://mp.weixin.qq.com/s/-giL3YRhVvyzP5dpHxw0sw">中文版</a>)</li>
+<li><a href="https://aurora.dev/blog/2021-how-the-rainbow-bridge-works">How the NEAR Rainbow Bridge works</a></li>
+<li><a href="https://nomicon.io/ChainSpec/LightClient.html">Light Client Spec</a></li>
+<li><a href="https://gov.near.org/t/bridge-upgradability-and-governance-plan/633">Bridge Upgradability and Governance</a></li>
+</ul>
+<h3 id="repositories"><a class="header" href="#repositories">Repositories</a></h3>
+<ul>
+<li><a href="https://github.com/aurora-is-near/rainbow-bridge">Bridge core infrastructure</a>: relays, clients, provers, watchdog</li>
+<li><a href="(https://github.com/aurora-is-near/rainbow-bridge-frontend)">Bridge frontend</a> and <a href="https://github.com/aurora-is-near/rainbow-bridge-client">bridge client</a></li>
+<li><a href="https://github.com/aurora-is-near/rainbow-token-connector">ERC20 / NEP141 token connector</a></li>
+<li><a href="https://github.com/djsatok/bridge-testing">CLI scripts</a> for transfers of ERC20 / NEP141 over the bridge</li>
+</ul>
+<h3 id="community-1"><a class="header" href="#community-1">Community</a></h3>
+<ul>
+<li><a href="https://github.com/BridgingGuild/BridgingGuild">Bridging Guild</a></li>
+</ul>
+<h3 id="contract"><a class="header" href="#contract">Contract</a></h3>
+<ul>
+<li><a href="https://gist.github.com/mfornet/e38777f9f758a76ec04ac941e8881c4b">Rainbow Bridge Contracts</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="localization"><a class="header" href="#localization">Localization</a></h1>
+<h2 id="build-dapp-with-localization-in-mind"><a class="header" href="#build-dapp-with-localization-in-mind">Build DApp with Localization in Mind</a></h2>
+<p>In the Open Web world, we should keep in mind your apps will be accessed not only by users who speak English, but also people all around the world.</p>
+<p>Considering around 30~40% of the users may actaully come from districts like China, Korea, Vietnam, etc., it's important to build your decentralized application with localization ready from the beginning. </p>
+<p>To be specific, DApp localization means:</p>
+<ol>
+<li><strong>i18n</strong>: Your DApp's user interface has i18n support from the beginning. So it costs minimal extra efforts to refator your code and add support to other languages. </li>
+<li><strong>Web app deployment</strong>: Since the frontend of most DApps nowadays are actually web applications. The deployment of your frontend code, espeically the static sites with JAMStack (Next.js, Nuxt.js, etc.), should choose the appropriate CI/CD, and CDN solutions to make your site be able to be open in less than 3 seconds rather than 30 seconds which will scare away your users.</li>
+<li><strong>RPC Node and Indexer</strong>: For NEAR RPC Node, and indexers, choose the nodes or servers that are most appropriate for your infrastructure and users to reduce the latency and improve stability. </li>
+<li><strong>Decentralized Storage</strong>: For decentralized storage solutions such IPFS, Arweave, Sia, Ceramic, etc. choose an appropriate service provider which help make your images, videos, etc. accessible globally by default without much extra efforts.</li>
+<li><strong>Backend Services</strong>: For any other dependent serivces, such as any helper services built with indexers, or other relevant data services, try to make the services accessible globally.</li>
+</ol>
+<h3 id="internalization-i18n"><a class="header" href="#internalization-i18n">Internalization (i18n)</a></h3>
+<p>We suggest the DApp developers to build your web application with i18n from the first day. </p>
+<h4 id="react"><a class="header" href="#react">React</a></h4>
+<p>You can use <a href="https://react.i18next.com/"><code>react-i18next</code></a> or any other frameworks you prefer if you're building with React or React Native.</p>
+<p>Or you may use <a href="https://ryandrewjohnson.github.io/react-localize-redux-docs/"><code>react-localize-redux</code></a> in case you don't want to keep the language route such as <code>en</code>, <code>zh</code> in your URLs.</p>
+<h4 id="vue"><a class="header" href="#vue">Vue</a></h4>
+<p><a href="https://kazupon.github.io/vue-i18n/">vue-i18n</a> may be a good solution for Vue developers, or you can simply use <a href="https://i18n.nuxtjs.org/">nuxt/i18n</a> module if you're building with Nuxt.js.</p>
+<h4 id="need-help-with-translation"><a class="header" href="#need-help-with-translation">Need Help with Translation?</a></h4>
+<p>In case you need help about translation your DApp into any languages, create an issue <a href="https://github.com/near-x/near-localize-dapp/issues/new">here</a> following the template, and we'll help connect you with the community to set up bounties and ask verified translators to help with the translation of your project.</p>
+<h3 id="web-app-deployment"><a class="header" href="#web-app-deployment">Web App Deployment</a></h3>
+<h4 id="static-site-deployment"><a class="header" href="#static-site-deployment">Static Site Deployment</a></h4>
+<p>If you're deploying your web app as a static site or SPA (Single Page Application), and would like to make your site easily accessible with fast loading speed in all areas including China, you need to carefully choose the deployment services, otherwise it's possible your users will complain why your sites take 30~60 seconds to open.</p>
+<p>Unfortunately, the most popular static site hosting solutions simply doesn't work globally especially in China, including Netlify, Vercel, Render, etc.</p>
+<p>The current recommended solution is <a href="https://pages.cloudflare.com/">Cloudflare Pages</a> which has verified to be working well even if your JS bundle may be as large as 1M.</p>
+<h3 id="rpc-nodes-and-indexers"><a class="header" href="#rpc-nodes-and-indexers">RPC Nodes and Indexers</a></h3>
+<h4 id="rpc-node"><a class="header" href="#rpc-node">RPC Node</a></h4>
+<p>If your app requires to use custom RPC Nodes, NEAR Protocol is working with RPC Node service providers such as Figment DataHub, Bison Trails, BSN (Blockchain-based Service Network), NEAR DRPC, etc., which will help to set up the best solutions for your DApps. </p>
+<p>Please feel free to contact email: robert AT near DOT org if you need nodes from China, we can help to set up optimized RPC nodes for your DApps. </p>
+<h4 id="indexer-1"><a class="header" href="#indexer-1">Indexer</a></h4>
+<p>For most DApps, now you can use the public indexer server as specifid in the indexer chapter, but in case you need any customized Indexer server, you can try to set up your own or discuss with us in community. </p>
+<h3 id="decentralized-storage-1"><a class="header" href="#decentralized-storage-1">Decentralized Storage</a></h3>
+<p>NEAR Procotol is working closely with Decentralized Storage solutions such as Filecoin, Ceramic, Crust, etc., to make it extremely easy to integrate your DApp with decentralized storage solutions. </p>
+<h4 id="ipfs"><a class="header" href="#ipfs">IPFS</a></h4>
+<p>You should look at the Filecoin-NEAR Bridge bulit by Textile if you're building with IPFS which provide free storage for NEAR users: https://near.storage/</p>
+<p>Also we'd like to recommend you to look at the IPFS service providers such as ......, in case you'd like to have built-in CDN ready for your IPFS files. </p>
+<h4 id="ceramic-1"><a class="header" href="#ceramic-1">Ceramic</a></h4>
+<p>To Be Added</p>
+<h4 id="arweave-1"><a class="header" href="#arweave-1">Arweave</a></h4>
+<p>To Be Added</p>
+<h3 id="backend-services"><a class="header" href="#backend-services">Backend Services</a></h3>
+<p>For backend services who'd like to achieve globally accessibility, you need to route your users to the optimal servers to reduce the latency. </p>
+<h2 id="examples-1"><a class="header" href="#examples-1">Examples</a></h2>
+<ol>
+<li>Mintbase</li>
+<li>Paras</li>
+<li>Pulse</li>
+<li>Ref Finance</li>
+<li>Aurora</li>
+<li>Rainbow Bridge</li>
+<li>SputnikDAO</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="security"><a class="header" href="#security">Security</a></h1>
+<ul>
+<li>NEAR Standard Contracts: https://github.com/near/near-sdk-rs/tree/master/near-contract-standards</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
