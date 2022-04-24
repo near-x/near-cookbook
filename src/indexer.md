@@ -25,7 +25,7 @@ NEAR runs the indexer and maintains it for NEAR Explorer, NEAR Wallet, and some 
 
 ## Common SQL Recipes
 
-**Total New Accounts By Date**
+#### Total New Accounts By Date
 
 ```SQL
 SELECT
@@ -38,7 +38,7 @@ GROUP BY “date”
 ORDER BY “date”
 ```
 
-**Top 10 Accounts with most Transactions in Past Two Weeks**
+#### Top 10 Accounts with most Transactions in Past Two Weeks
 
 ```SQL
 SELECT signer_account_id,
@@ -52,7 +52,7 @@ LIMIT 10
 ```
 
 
-**Active Accounts by Date**
+#### Active Accounts by Date
 
 ```SQL
 SELECT
@@ -75,7 +75,7 @@ SELECT
 
 - [indexer client source code](https://github.com/vgrichina/berry-wayback/blob/master/indexer.js)
 
-**find edits**: [source code](https://github.com/vgrichina/berry-wayback/blob/e177f484aa3f8e5ad8fcb0619250edf0db242d47/indexer.js#L23-L39)
+#### find edits: [source code](https://github.com/vgrichina/berry-wayback/blob/e177f484aa3f8e5ad8fcb0619250edf0db242d47/indexer.js#L23-L39)
 
 > Fetch 50 edits randomly from all the edits or edits by a user
 
@@ -105,7 +105,7 @@ NEAR Wallet used indexer to query necessary information related to accounts, suc
 
 - [indexer client source code](https://github.com/near/near-contract-helper/blob/master/middleware/indexer.js)
 
-**findAccountActivity**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L39-L67)
+#### findAccountActivity: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L39-L67)
 
 
 > Show account activities in wallet
@@ -142,7 +142,7 @@ const findAccountActivity = async (ctx) => {
 };
 ```
 
-**findAccountsByPublicKey**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L69-L80)
+#### findAccountsByPublicKey: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L69-L80)
 
 > Find accounts by public key, so when you input seed phrase, wallet is able to know which account is related to this seed phrase.
 
@@ -161,7 +161,7 @@ const findAccountsByPublicKey = async (ctx) => {
 };
 ```
 
-**findLikelyTokens**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L94-L127)
+#### findLikelyTokens: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L94-L127)
 
 > List the FT tokens related to the current user.
 
@@ -202,7 +202,7 @@ const findLikelyTokens = async (ctx) => {
 };
 ```
 
-**findLikelyNFTs**: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L130-L146)
+#### findLikelyNFTs: [source code](https://github.com/near/near-contract-helper/blob/7d6bd7efe4fe416747c8a23d40259286e636e49d/middleware/indexer.js#L130-L146)
 
 > List the NFT tokens related to the current user.
 
