@@ -10,6 +10,7 @@
 - [Fungible Token](./ft.md)
 - [Non-Fungible Token](./nft.md)
 - [Game](./game.md)
+- [RPC](./rpc.md)
 - [Indexer](./indexer.md)
 - [Aurora](./aurora.md)
 - [Localization](./localization.md)
