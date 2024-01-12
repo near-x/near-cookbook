@@ -15,7 +15,7 @@ To be specific, DApp localization means:
 5. **Backend Services**: For any other dependent serivces, such as any helper services built with indexers, or other relevant data services, try to make the services accessible globally.
 
 
-### Internalization (i18n)
+### 1. Internalization (i18n)
 
 We suggest the DApp developers to build your web application with i18n from the first day. 
 
@@ -34,7 +34,7 @@ Or you may use [`react-localize-redux`](https://ryandrewjohnson.github.io/react-
 In case you need help about translation your DApp into any languages, create an issue [here](https://github.com/near-x/near-localize-dapp/issues/new) following the template, and we'll help connect you with the community to set up bounties and ask verified translators to help with the translation of your project.
 
 
-### Web App Deployment
+### 2. Web App Deployment
 
 #### Static Site Deployment
 
@@ -45,11 +45,24 @@ Unfortunately, the most popular static site hosting solutions simply doesn't wor
 The current recommended solution is [Cloudflare Pages](https://pages.cloudflare.com/) which has verified to be working well even if your JS bundle may be as large as 1M.
 
 
-### RPC Nodes and Indexers
+### 3. RPC Nodes and Indexers
 
 #### RPC Node
 
 If your app requires to use custom RPC Nodes, NEAR Protocol is working with RPC Node service providers such as Figment DataHub, Bison Trails, BSN (Blockchain-based Service Network), NEAR DRPC, etc., which will help to set up the best solutions for your DApps. 
+
+Here are some RPCs that you can use for free:
+- NEAR official public RPC:
+  - mainnet: https://rpc.mainnet.near.org
+  - testnet: https://rpc.testnet.near.org
+- BlockPI DRPC:
+  - mainnet: https://public-rpc.blockpi.io/http/near
+  - testnet: https://public-rpc.blockpi.io/http/near-testnet
+
+And if you are worried about rate-limiting and accessibility issues, please consider those RPC service providers:
+- Bison Trails: https://bisontrails.co/near/
+- Figment: https://www.figment.io/datahub/near
+- BSN: https://bsnbase.io/g/main/index
 
 Please feel free to contact email: robert AT near DOT org if you need nodes from China, we can help to set up optimized RPC nodes for your DApps. 
 
@@ -58,29 +71,38 @@ Please feel free to contact email: robert AT near DOT org if you need nodes from
 For most DApps, now you can use the public indexer server as specifid in the indexer chapter, but in case you need any customized Indexer server, you can try to set up your own or discuss with us in community. 
 
 
-### Decentralized Storage
+### 4. Decentralized Storage
 
-NEAR Procotol is working closely with Decentralized Storage solutions such as Filecoin, Ceramic, Crust, etc., to make it extremely easy to integrate your DApp with decentralized storage solutions. 
+NEAR Procotol is working closely with Decentralized Storage solutions such as Filecoin, Ceramic, Crust, etc., to make it extremely easy to integrate your DApp with decentralized storage solutions.     
 
-#### IPFS
+Checkout [this](https://docs.near.org/docs/concepts/storage-solutions) for more details.    
+
+#### - IPFS
 
 You should look at the Filecoin-NEAR Bridge bulit by Textile if you're building with IPFS which provide free storage for NEAR users: https://near.storage/
 
-Also we'd like to recommend you to look at the IPFS service providers such as ......, in case you'd like to have built-in CDN ready for your IPFS files. 
+In order to provide a stable and fast access of IPFS to your users, we **highly recommend** you to use a Gateway/CDN service of IPFS, here are some options in the market:
 
+- Fleek: https://fleek.co/
+- Pinata: https://www.pinata.cloud/
 
-#### Ceramic
+In case none of those fits your need, please consider to either run a decicated IPFS node and pin all the resources your product need, or use a traditional CDN service like AWS CloudFront and upload a copy of all your resources to it.
 
-To Be Added
+#### - Sia
 
-#### Arweave
+https://docs.near.org/docs/concepts/storage-solutions#sia
 
-To Be Added
+#### - Arweave
 
-### Backend Services
+https://docs.near.org/docs/concepts/storage-solutions#arweave
 
-For backend services who'd like to achieve globally accessibility, you need to route your users to the optimal servers to reduce the latency. 
+### 5. Backend Services
 
+Although having a centralized backend service somehow violates the concept of decentralization, it could dramatically increase site accessibility and usability for your users.         
+
+Thus, generally speaking, we would encourage each product to have a well-maintained backend service which provides most frequently used data to frontend clients.    
+
+When building a backend service, you should use multiple instances and have a load balancer to avoid single-point-failure issue. Additionally if you are using a cloud provider like AWS, multi AZ deployment is always a good option.
 
 
 ## Examples
@@ -92,7 +114,3 @@ For backend services who'd like to achieve globally accessibility, you need to r
 5. Aurora
 6. Rainbow Bridge
 7. SputnikDAO
-
-
-
-
