@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>NEAR Cookbook</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -33,15 +32,16 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,50 +57,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="eth_to_near.html"><strong aria-hidden="true">1.</strong> Ethereum to NEAR</a></li><li class="chapter-item expanded "><a href="rust_smart_contract.html"><strong aria-hidden="true">2.</strong> Rust Smart Contract</a></li><li class="chapter-item expanded "><a href="near_cli.html"><strong aria-hidden="true">3.</strong> Play with NEAR CLI</a></li><li class="chapter-item expanded "><a href="account.html"><strong aria-hidden="true">4.</strong> Powerful Account Model</a></li><li class="chapter-item expanded "><a href="hiding_blockchain.html"><strong aria-hidden="true">5.</strong> Hiding the Blockchain</a></li><li class="chapter-item expanded "><a href="storage.html"><strong aria-hidden="true">6.</strong> Storage</a></li><li class="chapter-item expanded "><a href="wallet.html"><strong aria-hidden="true">7.</strong> Wallet</a></li><li class="chapter-item expanded "><a href="ft.html"><strong aria-hidden="true">8.</strong> Fungible Token</a></li><li class="chapter-item expanded "><a href="nft.html"><strong aria-hidden="true">9.</strong> Non-Fungible Token</a></li><li class="chapter-item expanded "><a href="game.html"><strong aria-hidden="true">10.</strong> Game</a></li><li class="chapter-item expanded "><a href="indexer.html"><strong aria-hidden="true">11.</strong> Indexer</a></li><li class="chapter-item expanded "><a href="aurora.html"><strong aria-hidden="true">12.</strong> Aurora</a></li><li class="chapter-item expanded "><a href="localization.html"><strong aria-hidden="true">13.</strong> Localization</a></li><li class="chapter-item expanded "><a href="security.html"><strong aria-hidden="true">14.</strong> Security</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="eth_to_near.html"><strong aria-hidden="true">1.</strong> Ethereum to NEAR</a></li><li class="chapter-item expanded "><a href="rust_smart_contract.html"><strong aria-hidden="true">2.</strong> Rust Smart Contract</a></li><li class="chapter-item expanded "><a href="near_cli.html"><strong aria-hidden="true">3.</strong> Play with NEAR CLI</a></li><li class="chapter-item expanded "><a href="account.html"><strong aria-hidden="true">4.</strong> Powerful Account Model</a></li><li class="chapter-item expanded "><a href="hiding_blockchain.html"><strong aria-hidden="true">5.</strong> Hiding the Blockchain</a></li><li class="chapter-item expanded "><a href="storage.html"><strong aria-hidden="true">6.</strong> Storage</a></li><li class="chapter-item expanded "><a href="wallet.html"><strong aria-hidden="true">7.</strong> Wallet</a></li><li class="chapter-item expanded "><a href="ft.html"><strong aria-hidden="true">8.</strong> Fungible Token</a></li><li class="chapter-item expanded "><a href="nft.html"><strong aria-hidden="true">9.</strong> Non-Fungible Token</a></li><li class="chapter-item expanded "><a href="game.html"><strong aria-hidden="true">10.</strong> Game</a></li><li class="chapter-item expanded "><a href="rpc.html"><strong aria-hidden="true">11.</strong> RPC</a></li><li class="chapter-item expanded "><a href="indexer.html"><strong aria-hidden="true">12.</strong> Indexer</a></li><li class="chapter-item expanded "><a href="aurora.html"><strong aria-hidden="true">13.</strong> Aurora</a></li><li class="chapter-item expanded "><a href="localization.html"><strong aria-hidden="true">14.</strong> Localization</a></li><li class="chapter-item expanded "><a href="security.html"><strong aria-hidden="true">15.</strong> Security</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -133,7 +164,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -326,7 +357,7 @@
 <li>https://tkn.farm/</li>
 </ul>
 <h2 id="frequently-used-tokens"><a class="header" href="#frequently-used-tokens">Frequently Used Tokens</a></h2>
-<table><thead><tr><th>Name</th><th>Mainnet Address</th><th>Testnet Address</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Mainnet Address</th><th>Testnet Address</th></tr></thead><tbody>
 <tr><td>USDT</td><td>dac17f958d2ee523a2206206994597c13d831ec7.factory.bridge.near</td><td>usdt.fakes.testnet</td></tr>
 <tr><td>DAI</td><td>6b175474e89094c44da98b954eedeac495271d0f.factory.bridge.near</td><td>dai.fakes.testnet</td></tr>
 <tr><td>USDC</td><td>a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.factory.bridge.near</td><td>usdc.fakes.testnet</td></tr>
@@ -363,7 +394,7 @@
 <tr><td>OIN</td><td>9aeb50f542050172359a0e1a25a9933bc8c01259.factory.bridge.near</td><td></td></tr>
 <tr><td>MYRIA</td><td>myriadcore.near</td><td></td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="non-fungible-token"><a class="header" href="#non-fungible-token">Non-Fungible Token</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="non-fungible-token"><a class="header" href="#non-fungible-token">Non-Fungible Token</a></h1>
 <p>Awesome NFTs Projects and Toolkits built with NEAR</p>
 <h2 id="standards-1"><a class="header" href="#standards-1">Standards</a></h2>
 <p><a href="https://nomicon.io/Standards/NonFungibleToken/README.html">Non-Fungible Token Standards</a></p>
@@ -480,7 +511,47 @@
 <ul>
 <li><a href="https://github.com/near-x/ncd-cn/raw/master/cohorts/ncd-cn-2/slides/NEAR%20%E8%AE%A4%E8%AF%81%E5%BC%80%E5%8F%91%E8%80%85%EF%BC%889%EF%BC%89%EF%BC%9ANEAR%20%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5.pdf">NEAR Game Development Practice (in Chinese)</a> / <a href="https://www.bilibili.com/video/BV1ZU4y1A7RV">Video</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="indexer"><a class="header" href="#indexer">Indexer</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="near-rpcs"><a class="header" href="#near-rpcs">NEAR RPCs</a></h1>
+<h2 id="mainnet-1"><a class="header" href="#mainnet-1">Mainnet</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Provider</th><th>Endpoint Root</th></tr></thead><tbody>
+<tr><td><a href="setup.html">NEAR</a></td><td><code>https://rpc.mainnet.near.org</code></td></tr>
+<tr><td><a href="https://www.pagoda.co/console">Pagoda</a></td><td><code>https://near-mainnet.api.pagoda.co/rpc/v1</code></td></tr>
+<tr><td><a href="https://docs.1rpc.io/overview/about-1rpc">1RPC</a></td><td><code>https://1rpc.io/near</code></td></tr>
+<tr><td><a href="https://docs.allthatnode.com/protocols/near/">All That Node</a></td><td><code>https://near-mainnet-rpc.allthatnode.com:3030</code></td></tr>
+<tr><td><a href="https://www.ankr.com/docs/rpc-service/chains/chains-list/#near">ankr.com</a></td><td><code>https://rpc.ankr.com/near</code></td></tr>
+<tr><td><a href="https://github.com/vgrichina/fast-near">fast-near</a></td><td><code>https://rpc.web4.near.page</code></td></tr>
+<tr><td><a href="https://gateway.fm/">Gateway.fm</a></td><td><code>https://rpc.near.gateway.fm/</code></td></tr>
+<tr><td><a href="https://getblock.io/nodes/near/">GetBlock</a></td><td><code>https://getblock.io/nodes/near/</code></td></tr>
+<tr><td><a href="https://lavenderfive.com/">Lavender.Five Nodes</a></td><td><code>https://near.lavenderfive.com/</code></td></tr>
+<tr><td><a href="https://nodereal.io">NodeReal</a></td><td><code>https://nodereal.io/api-marketplace/near-rpc</code></td></tr>
+<tr><td><a href="https://nownodes.io/">NOWNodes</a></td><td><code>https://near.nownodes.io/</code></td></tr>
+<tr><td><a href="https://omniatech.io">OMNIA</a></td><td><code>https://endpoints.omniatech.io/v1/near/mainnet/public</code></td></tr>
+<tr><td><a href="https://www.quicknode.com/chains/near">QuickNode</a></td><td>-</td></tr>
+<tr><td><a href="https://docs.seracle.com/">Seracle</a></td><td><code>https://api.seracle.com/saas/baas/rpc/near/mainnet/public/</code></td></tr>
+</tbody></table>
+</div>
+<h3 id="archival-nodes"><a class="header" href="#archival-nodes">Archival Nodes</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Provider</th><th>Endpoint Root</th></tr></thead><tbody>
+<tr><td><a href="setup.html">NEAR</a></td><td><code>https://archival-rpc.mainnet.near.org</code></td></tr>
+<tr><td><a href="https://www.ankr.com/docs/rpc-service/chains/chains-list/#near">ankr.com</a></td><td><code>https://rpc.ankr.com/near</code></td></tr>
+<tr><td><a href="https://github.com/vgrichina/fast-near">fast-near</a></td><td><code>https://rpc.web4.near.page</code></td></tr>
+</tbody></table>
+</div>
+<h2 id="testnet-1"><a class="header" href="#testnet-1">Testnet</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Provider</th><th>Endpoint Root</th></tr></thead><tbody>
+<tr><td><a href="setup.html">NEAR</a></td><td><code>https://rpc.testnet.near.org</code></td></tr>
+<tr><td><a href="https://www.pagoda.co/console">Pagoda</a></td><td><code>https://near-testnet.api.pagoda.co/rpc/v1</code></td></tr>
+<tr><td><a href="https://docs.allthatnode.com/protocols/near/">All That Node</a></td><td><code>https://near-testnet-rpc.allthatnode.com:3030</code></td></tr>
+<tr><td><a href="https://github.com/vgrichina/fast-near">fast-near</a></td><td><code>https://rpc.web4.testnet.page/</code></td></tr>
+<tr><td><a href="https://omniatech.io">OMNIA</a></td><td><code>https://endpoints.omniatech.io/v1/near/testnet/public</code></td></tr>
+</tbody></table>
+</div>
+<h3 id="archival-nodes-1"><a class="header" href="#archival-nodes-1">Archival Nodes</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Provider</th><th>Endpoint Root</th></tr></thead><tbody>
+<tr><td><a href="setup.html">NEAR</a></td><td><code>https://archival-rpc.testnet.near.org</code></td></tr>
+<tr><td><a href="https://github.com/vgrichina/fast-near">fast-near</a></td><td><code>https://rpc.web4.testnet.page</code></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="indexer"><a class="header" href="#indexer">Indexer</a></h1>
 <h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <ul>
 <li><a href="https://docs.near.org/docs/tools/near-indexer-framework">What is Indexer Framework</a></li>
@@ -812,26 +883,27 @@ LIMIT 10
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
 
+    </div>
     </body>
 </html>
